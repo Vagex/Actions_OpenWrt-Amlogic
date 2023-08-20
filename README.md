@@ -10,6 +10,7 @@
 - [ophub 内核打包参数说明](https://github.com/ophub/amlogic-s9xxx-openwrt/blob/main/README.cn.md#%E4%BD%BF%E7%94%A8-github-actions-%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91)
 - [kenzok8 软件包收集仓库](https://github.com/kenzok8/small-package)
 - [p3terx 云编译教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
+- [quanjindeng N1Action编译](https://github.com/quanjindeng/Actions_OpenWrt-Amlogic)
 - 所有OpenWrt源码贡献者、插件开发者
 
 
