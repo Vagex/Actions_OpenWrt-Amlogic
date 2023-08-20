@@ -1,0 +1,23 @@
+编译 Caddy
+https://github.com/caddyserver/xcaddy
+
+由于 Caddy 是模块化的，缓存插件需要额外编译，需要安装go
+
+这里我们使用官方提供的 xcaddy 来构建属于我们自己的 Caddy
+
+# 下载xcaddy
+wget https://github.com/caddyserver/xcaddy/releases/download/v0.2.0/xcaddy_0.2.0_linux_amd64.tar.gz
+# 创建目录
+mkdir caddy
+# 解压
+tar xvf xcaddy_0.2.0_linux_amd64.tar.gz -C caddy
+# 进入目录,准备编译
+cd caddy
+# 编译
+./xcaddy build --with github.com/caddy-dns/dnspod --with github.com/sillygod/cdp-cache
+# 移除原有的caddy
+rm /usr/bin/caddy
+# 将我们自己编译好的挪过去
+cp caddy /usr/bin/caddy
+# 查看模块
+caddy list-modules
