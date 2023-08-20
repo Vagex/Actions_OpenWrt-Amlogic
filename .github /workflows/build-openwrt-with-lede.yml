@@ -1,4 +1,4 @@
-name: 编译固件（自用）
+name: build-openwrt-with-lede.yml
 
 on:
   repository_dispatch:
