@@ -63,6 +63,24 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     
     steps:
+    - name: 创建编译空间挂载点
+      run: |
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+        
+    - name: 最大化编译空间
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 2048
+        swap-size-mb: 1024
+        build-mount-path: /workdir
+        overprovision-lvm: 'true'
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
+    
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -101,10 +119,10 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        # sudo mkdir -p /workdir
+        # sudo chown $USER:$GROUPS /workdir
         # 清理多余文件，腾出磁盘空间
-        docker rmi $(docker images -q)
+        # docker rmi $(docker images -q)
         # sudo -E apt-get remove -y --purge azure-cli ghc zulu* llvm* firefox google* dotnet* powershell mysql* php* android*
         # sudo rm -rf /etc/mysql /etc/php /swapfile
 
@@ -162,7 +180,7 @@ jobs:
         echo "清理之前："
         df -hT
         mkdir openwrt-armvirt
-        mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
+        mv /workdir/openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
         echo -e "\n"
         echo "列出空间占用前10的目录或文件："
         sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
@@ -181,7 +199,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         WHOAMI: deng
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz  openwrt/bin/targets/*/*/*rootfs.tar.gz
+        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: ${{ github.event.inputs.openwrt_soc }}
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
