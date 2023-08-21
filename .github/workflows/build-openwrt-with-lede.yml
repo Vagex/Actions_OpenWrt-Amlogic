@@ -199,7 +199,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         WHOAMI: deng
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: ${{ github.event.inputs.openwrt_soc }}
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/tree/main/kernel
