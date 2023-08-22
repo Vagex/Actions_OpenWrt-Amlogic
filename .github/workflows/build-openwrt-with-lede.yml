@@ -228,7 +228,7 @@ jobs:
           token: ${{ secrets.Github_TOKEN_Amlogic_lede }}
           repository: ${{ github.repository }}
           keep_minimum_runs: 0
-          retain_days: 180
+          retain_days: 7
           #retain_days: ${{ github.event.inputs.action_days }}
     
     - name: 删除多余releases
