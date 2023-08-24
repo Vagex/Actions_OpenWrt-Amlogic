@@ -201,7 +201,7 @@ jobs:
       uses: unifreq/openwrt_packit@master
       env:
         WHOAMI: deng
-        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*.tar.gz
+        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: ${{ github.event.inputs.openwrt_soc }}
         KERNEL_AUTO_LATEST: true
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/releases/tag/kernel_stable
