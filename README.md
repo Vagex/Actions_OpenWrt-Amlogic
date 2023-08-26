@@ -3,10 +3,10 @@
 所有盒子固件均采用同一底包，默认为打包N1盒子的固件，如需打包其他型号盒子参照flippy的打包脚本说明修改.yml流程文件即可。
 
 # 目前包含的常用Packages 如下：
-**1. Passwall
-**2. Opencalsh
-**3. SSR-Plus
-**4. Mosdns
+- [Passwall]
+- [Opencalsh]
+- [SSR-Plus]
+- [Mosdns]
 
 ## 感谢
 - [Lean's OpenWrt 源码仓库](https://github.com/coolsnowwolf/lede)
