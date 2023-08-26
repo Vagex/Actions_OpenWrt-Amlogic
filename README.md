@@ -2,6 +2,11 @@
 利用Actions云编译，整合了Amlogic平台的盒子OpenWrt固件编译与内核打包方法，一键生成可直接使用的固件。
 所有盒子固件均采用同一底包，默认为打包N1盒子的固件，如需打包其他型号盒子参照flippy的打包脚本说明修改.yml流程文件即可。
 
+# 目前包含的常用Packages 如下：
+**1. Passwall
+**2. Opencalsh
+**3. SSR-Plus
+**4. Mosdns
 
 ## 感谢
 - [Lean's OpenWrt 源码仓库](https://github.com/coolsnowwolf/lede)
